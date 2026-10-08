@@ -1,0 +1,26 @@
+.app {
+  max-width: 1000px;
+  margin: 16px auto;
+  background-color: #ffffff;
+  border: 1px solid #5c7899;
+  box-shadow: 4px 4px 0 rgba(44, 62, 85, 0.35);
+}
+
+.main {
+  padding: 20px;
+}
+
+.heading {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  font-weight: normal;
+  color: #336699;
+  border-bottom: 2px solid #336699;
+  padding-bottom: 4px;
+  margin-bottom: 16px;
+}
+
+.heading::before {
+  content: '» ';
+  color: #cc6600;
+}

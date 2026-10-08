@@ -1,0 +1,94 @@
+/* Переменные в :root — один раз задали, дальше меняем тему в одном месте */
+:root {
+  --gap: 16px;
+  --header-bg: #e3f2fd;
+  --sidebar-bg: #fff3e0;
+  --main-bg: #f3e5f5;
+  --footer-bg: #e8f5e9;
+  --text-color: #111;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--text-color);
+}
+
+/* Сетка страницы: три колонки и три строки.
+   grid-template-areas рисует макет «картинкой»: каждая строка в кавычках —
+   строка сетки, а имена в ней — колонки.
+   Точка (.) вместо имени области — пустая ячейка, в неё ничего не попадает.
+   Контент и сайдбар поменяны местами (в JSX сайдбар идёт раньше): порядок
+   на экране задаёт карта областей, а не порядок компонентов в разметке. */
+.layout {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header header"
+    "main . sidebar"
+    "footer footer footer";
+  gap: var(--gap);
+  min-height: 80vh;
+  padding: var(--gap);
+}
+
+/* Каждый блок просто называет область, в которую должен попасть */
+.header  { grid-area: header;  background: var(--header-bg);  padding: 1rem; }
+.sidebar { grid-area: sidebar; background: var(--sidebar-bg); padding: 1rem; }
+.main    { grid-area: main;    background: var(--main-bg);    padding: 1rem; }
+.footer  { grid-area: footer;  background: var(--footer-bg);  padding: 1rem; }
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+}
+
+/* Псевдоклассы */
+.sidebar li:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.sidebar li:active {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* Приветствие в шапке */
+.user-badge {
+  margin-left: 1rem;
+}
+
+/* Названия CSS-свойств в тексте — моноширинным шрифтом,
+   чтобы не сливались с обычными словами */
+code {
+  font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+  font-size: 0.92em;
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* На узком экране те же области складываем в одну колонку:
+   контент поднимается выше меню, разметку в JSX менять не нужно. */
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "sidebar"
+      "footer";
+  }
+}

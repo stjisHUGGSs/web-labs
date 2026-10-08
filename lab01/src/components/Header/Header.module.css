@@ -1,0 +1,44 @@
+.header {
+  background-color: #336699;
+  border-bottom: 3px double #ffffff;
+  color: #ffffff;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logo {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 #1f4061;
+}
+
+.tagline {
+  font-size: 11px;
+  font-style: italic;
+  color: #cfe0f0;
+}
+
+.counter {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  font-weight: bold;
+  color: #66ff66;
+  background-color: #000000;
+  border: 2px inset #99aabb;
+  padding: 3px 8px;
+}

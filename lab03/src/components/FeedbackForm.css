@@ -1,0 +1,163 @@
+/* src/components/FeedbackForm.css */
+
+/* --- Каркас формы --- */
+.feedback-form {
+  max-width: 480px;
+  margin: 40px auto;
+  padding: 32px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* --- Поле --- */
+.field {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* --- Базовое состояние инпута (покой) --- */
+.field__input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 2px solid #d0d5dd; /* нейтральная рамка */
+  border-radius: 8px;
+  background: #f9fafb;
+  color: #1d2939;
+  outline: none;
+  /* убираем стандартный outline,
+     кастомизируем через box-shadow */
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+/* --- Состояние фокуса --- */
+.field__input:focus {
+  border-color: #2563eb; /* синяя рамка */
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15); /* мягкое свечение */
+}
+
+/* --- Состояние ошибки --- */
+/* Класс добавляется через JSX, когда touched[field] && errors[field] */
+.field__input--error {
+  border-color: #e5484d; /* красная рамка */
+  background: #fef2f2;
+}
+
+.field__input--error:focus {
+  border-color: #e5484d;
+  box-shadow: 0 0 0 3px rgba(229, 72, 77, 0.15);
+}
+
+/* --- Состояние успеха --- */
+/* Класс добавляется, когда поле тронуто и ошибки нет */
+.field__input--valid {
+  border-color: #30a46c; /* зелёная рамка */
+  background: #f0fdf4;
+}
+
+.field__input--valid:focus {
+  border-color: #30a46c;
+  box-shadow: 0 0 0 3px rgba(48, 164, 108, 0.15);
+}
+
+/* --- Текст ошибки --- */
+.field__error {
+  font-size: 13px;
+  color: #e5484d;
+  margin-top: 2px;
+}
+
+/* --- Textarea --- */
+.field__input--textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* --- Нижняя строка поля «Сообщение»: ошибка слева, счётчик справа --- */
+.field__footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.field__counter {
+  margin-left: auto;
+  margin-top: 2px;
+  font-size: 13px;
+  color: #667085;
+  white-space: nowrap;
+}
+
+/* Лимит исчерпан — счётчик краснеет */
+.field__counter--limit {
+  color: #e5484d;
+  font-weight: 600;
+}
+
+/* --- Переключатель «Хочу получить ответ» --- */
+.field--checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.field--checkbox input {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.field--checkbox label {
+  cursor: pointer;
+}
+
+/* --- Кнопка отправки --- */
+.feedback-form__submit {
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #2563eb;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.feedback-form__submit:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.feedback-form__submit:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* --- Экран успеха --- */
+.feedback-form--success {
+  text-align: center;
+}
+
+.feedback-form__title {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.feedback-form__text {
+  font-size: 15px;
+  color: #667085;
+  margin-bottom: 24px;
+}

@@ -1,0 +1,33 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+/* Задание 6.2: 4 карточки в ряд на широком экране.
+   Для 3 в ряд вернуть делитель 3 и вычитаемое 48px (gap * (3 - 1)). */
+.list > * {
+  flex: 1 1 calc((100% - 72px) / 4);
+  max-width: calc((100% - 72px) / 4);
+}
+
+@media (max-width: 1024px) {
+  .list > * {
+    flex: 1 1 calc((100% - 48px) / 3);
+    max-width: calc((100% - 48px) / 3);
+  }
+}
+
+@media (max-width: 768px) {
+  .list > * {
+    flex: 1 1 calc((100% - 24px) / 2);
+    max-width: calc((100% - 24px) / 2);
+  }
+}
+
+@media (max-width: 520px) {
+  .list > * {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}

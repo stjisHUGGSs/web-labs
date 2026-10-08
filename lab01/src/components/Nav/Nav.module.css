@@ -1,0 +1,35 @@
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  background-color: #e8e4d0;
+  border-top: 1px solid #ffffff;
+  padding: 6px 20px;
+}
+
+.link {
+  font-size: 11px;
+  font-weight: bold;
+  color: #0000cc;
+  text-decoration: underline;
+  padding: 2px 8px;
+}
+
+.link::before {
+  content: '[ ';
+  color: #996600;
+}
+
+.link::after {
+  content: ' ]';
+  color: #996600;
+}
+
+.link:hover {
+  color: #cc0000;
+  background-color: #fffbe0;
+}
+
+.link:active {
+  color: #663399;
+}
